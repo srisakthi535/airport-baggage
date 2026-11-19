@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Baggage Sorter Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>✈ Airport Baggage Sorter</h1>
+    <p>Data Structures and Algorithms Simulation Game</p>
+</header>
+
+<main>
+
+    <!-- MAIN MENU -->
+    <section id="menu" class="panel">
+        <h2>Welcome to Airport!</h2>
+        <p>Sort baggage and send it to the correct flight counter.</p>
+        <button onclick="startGame()">▶ Play Game</button>
+        <button class="secondary" onclick="showInstructions()">How to Play</button>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="game" class="panel hidden">
+
+        <div class="stats">
+            <div>⏱ Time: <span id="timer">00:00</span></div>
+            <div>⭐ Score: <span id="score">0</span></div>
+            <div>✅ Correct: <span id="correct">0</span></div>
+            <div>❌ Wrong: <span id="wrong">0</span></div>
+        </div>
+
+        <h2>🧳 Baggage Conveyor Belt</h2>
+
+        <div class="conveyor">
+            <div id="bag">Waiting for baggage...</div>
+        </div>
+
+        <div class="details">
+            <h3>Flight Information</h3>
+            <table>
+                <tr>
+                    <th>Flight</th>
+                    <th>Destination</th>
+                    <th>Counter</th>
+                </tr>
+                <tr>
+                    <td>AI-101</td>
+                    <td>Delhi</td>
+                    <td>A1</td>
+                </tr>
+                <tr>
+                    <td>6E-205</td>
+                    <td>Chennai</td>
+                    <td>B2</td>
+                </tr>
+                <tr>
+                    <td>SG-310</td>
+                    <td>Mumbai</td>
+                    <td>C3</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Choose the Correct Flight Counter</h3>
+
+        <div class="counters">
+            <button onclick="assignBag('A1')">A1 - Delhi</button>
+            <button onclick="assignBag('B2')">B2 - Chennai</button>
+            <button onclick="assignBag('C3')">C3 - Mumbai</button>
+        </div>
+
+        <div class="tools">
+            <input type="text" id="searchInput"
+                   placeholder="Enter Flight Number">
+            <button onclick="searchFlight()">🔍 Search</button>
+            <button onclick="sortBags()">Sort by Weight</button>
+        </div>
+
+        <p id="message"></p>
+        <p id="queueInfo"></p>
+
+        <button class="secondary" onclick="goHome()">Main Menu</button>
+
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="result" class="panel hidden">
+        <h2>🏆 Game Completed!</h2>
+
+        <div class="result-box">
+            <p>Total Bags: <span id="totalBags"></span></p>
+            <p>Correct Bags: <span id="finalCorrect"></span></p>
+            <p>Wrong Bags: <span id="finalWrong"></span></p>
+            <p>Time Taken: <span id="finalTime"></span></p>
+            <p>Final Score: <span id="finalScore"></span></p>
+            <h2 id="rank"></h2>
+        </div>
+
+        <button onclick="startGame()">Play Again</button>
+        <button class="secondary" onclick="goHome()">Main Menu</button>
+    </section>
+
+</main>
+
+<footer>
+    <p>DSAA Project | Algorithmic Airport Baggage Sorter</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
